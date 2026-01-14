@@ -3,128 +3,253 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>WEB GALLERY | Design • Branding • Creativity</title>
+<title>Web Gallery | Design • Branding • Creativity</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,Helvetica,sans-serif;}
-body{background:#f8f8f8;scroll-behavior:smooth;}
+:root{
+  --bg:#f5f7fb;
+  --card:#ffffff;
+  --primary:#0f2a44;
+  --accent:#c62828;
+  --gold:#caa54d;
+  --text:#444;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+  font-family:'Poppins',sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  scroll-behavior:smooth;
+}
 
 /* HEADER */
 header{
-  position:sticky;top:0;z-index:1000;
-  background:#fff;padding:12px 30px;
-  display:flex;justify-content:space-between;align-items:center;
-  box-shadow:0 2px 8px rgba(0,0,0,.1);
+  position:sticky;top:0;z-index:999;
+  background:#fff;
+  padding:14px 40px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  box-shadow:0 8px 30px rgba(0,0,0,.08);
 }
-.logo img{height:45px;}
-nav a{margin-left:20px;text-decoration:none;color:#333;font-weight:600;}
-nav a:hover{color:#000;}
-
-/* HERO */
-.hero{
-  padding:110px 20px;text-align:center;
-  background:#ececec;animation:fadeIn 1.5s;
+header img{height:40px;}
+nav a{
+  margin-left:22px;
+  text-decoration:none;
+  font-weight:500;
+  color:var(--primary);
 }
-.hero h1{font-size:42px;}
-.hero p{margin:10px 0;font-size:18px;}
-.btn{
-  display:inline-block;margin-top:20px;
-  padding:12px 28px;background:#000;color:#fff;
-  text-decoration:none;border-radius:4px;
-}
+nav a:hover{color:var(--accent);}
 
 /* SECTION */
-.section{padding:70px 20px;text-align:center;}
-.section h2{margin-bottom:30px;font-size:32px;}
+section{
+  padding:80px 60px;
+}
+h2{
+  font-size:34px;
+  color:var(--primary);
+  margin-bottom:25px;
+}
+.sub{
+  font-size:18px;
+  margin-bottom:30px;
+}
 
 /* SERVICES */
-.cards{display:flex;justify-content:center;gap:30px;flex-wrap:wrap;}
-.card{
-  background:#fff;padding:20px;width:280px;
-  transition:.4s;
+.product-title{
+  font-size:26px;
+  color:var(--primary);
+  margin:25px 0 8px;
 }
-.card:hover{transform:translateY(-8px) scale(1.05);}
-.card img{width:100%;cursor:pointer;}
-.card h3{margin:15px 0 8px;}
+.price{
+  font-size:20px;
+  font-weight:700;
+  color:var(--accent);
+  margin-bottom:25px;
+}
+.cards{
+  display:flex;
+  gap:28px;
+  flex-wrap:wrap;
+}
+.card{
+  background:var(--card);
+  border-radius:18px;
+  padding:18px;
+  width:260px;
+  box-shadow:0 18px 40px rgba(0,0,0,.08);
+  transition:.45s ease;
+  opacity:0;
+  transform:translateY(40px);
+}
+.card.show{
+  opacity:1;
+  transform:translateY(0);
+}
+.card:hover{
+  transform:translateY(-12px) scale(1.05);
+  box-shadow:0 30px 70px rgba(0,0,0,.15);
+}
+.card img{
+  width:100%;
+  border-radius:14px;
+  cursor:pointer;
+}
 
 /* GALLERY */
 .gallery{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-  gap:20px;
+  gap:24px;
 }
 .gallery img{
-  width:100%;cursor:pointer;transition:.3s;
+  width:100%;
+  border-radius:16px;
+  box-shadow:0 14px 35px rgba(0,0,0,.1);
+  transition:.4s;
+  cursor:pointer;
 }
-.gallery img:hover{transform:scale(1.1);}
+.gallery img:hover{
+  transform:scale(1.1);
+}
 
-/* INFO */
-.info{background:#fff;}
-.info ul{list-style:none;max-width:750px;margin:auto;}
-.info ul li{margin:10px 0;}
+/* WHY US */
+.why{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:20px;
+}
+.why div{
+  background:#fff;
+  padding:22px;
+  border-radius:16px;
+  box-shadow:0 10px 30px rgba(0,0,0,.08);
+  font-weight:500;
+}
 
-/* FOOTER */
-footer{background:#222;color:#fff;padding:20px;text-align:center;}
+/* FAQ / SUPPORT */
+.box{
+  background:#fff;
+  border-radius:18px;
+  padding:30px;
+  box-shadow:0 12px 30px rgba(0,0,0,.08);
+}
+.box li{margin:10px 0;}
+
+/* CONTACT */
+.contact{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:40px;
+}
+.whatsapp{
+  background:#25D366;
+  color:#fff;
+  padding:20px 40px;
+  border-radius:14px;
+  text-decoration:none;
+  font-size:18px;
+  font-weight:600;
+  box-shadow:0 20px 40px rgba(37,211,102,.35);
+}
+.whatsapp:hover{filter:brightness(1.1);}
 
 /* MODAL */
 #modal{
-  display:none;position:fixed;inset:0;
-  background:rgba(0,0,0,.85);
-  justify-content:center;align-items:center;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.75);
+  display:none;
+  justify-content:center;
+  align-items:center;
   z-index:2000;
 }
-#modal img{max-width:90%;max-height:90%;}
+#modal .box{
+  max-width:420px;
+  text-align:center;
+}
+#modal img{
+  width:100%;
+  border-radius:14px;
+  margin-bottom:15px;
+}
+.modal-btn{
+  display:block;
+  margin:10px 0;
+  padding:12px;
+  border-radius:10px;
+  color:#fff;
+  text-decoration:none;
+  font-weight:600;
+}
+.normal{background:#0f2a44;}
+.luxury{background:#c62828;}
+.close{background:#aaa;}
+
+/* FOOTER */
+footer{
+  background:#0f2a44;
+  color:#fff;
+  text-align:center;
+  padding:25px;
+  margin-top:60px;
+}
 
 /* ANIMATION */
-@keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
+.reveal{opacity:0;transform:translateY(40px);transition:1s;}
+.reveal.show{opacity:1;transform:none;}
 </style>
 </head>
 
 <body>
 
 <header>
-  <div class="logo">
-    <img src="logo.png" alt="WEB GALLERY Logo">
-  </div>
+  <img src="logo.png">
   <nav>
-    <a href="#home">Home</a>
-    <a href="#service">Service</a>
+    <a href="#service">Home</a>
     <a href="#gallery">Gallery</a>
-    <a href="#info">More Information</a>
+    <a href="#why">Why Us</a>
+    <a href="#faq">FAQ</a>
+    <a href="#support">Support</a>
+    <a href="#payment">Payment</a>
+    <a href="#contact">Contact</a>
   </nav>
 </header>
 
-<section id="home" class="hero">
-  <h1>WEB GALLERY</h1>
-  <p>Design • Branding • Creativity</p>
-  <a class="btn" href="https://wa.me/918391979133">Order on WhatsApp</a>
-</section>
-
-<section id="service" class="section">
+<section id="service">
   <h2>Our Services</h2>
+
+  <div class="product-title">Photo Frame</div>
+  <div class="price">Normal ₹499 | Luxury ₹999</div>
   <div class="cards">
-    <div class="card">
-      <img src="frame1.png" onclick="openModal(this.src)">
-      <h3>Custom Photo Frame</h3>
-      <p>₹499 – ₹999</p>
-      <a class="btn" href="https://wa.me/918391979133">Order Now</a>
-    </div>
-    <div class="card">
-      <img src="mug1.png" onclick="openModal(this.src)">
-      <h3>Custom Coffee Cup</h3>
-      <p>₹349 – ₹699</p>
-      <a class="btn" href="https://wa.me/918391979133">Order Now</a>
-    </div>
+    <div class="card"><img src="frame1.png" onclick="openModal(this.src)"></div>
+    <div class="card"><img src="frame2.png" onclick="openModal(this.src)"></div>
+    <div class="card"><img src="frame3.jpeg" onclick="openModal(this.src)"></div>
+    <div class="card"><img src="frame4.jpeg" onclick="openModal(this.src)"></div>
+    <div class="card"><img src="frame5.png" onclick="openModal(this.src)"></div>
+  </div>
+
+  <div class="product-title" style="margin-top:60px;">Coffee Mug</div>
+  <div class="price">Normal ₹349 | Luxury ₹699</div>
+  <div class="cards">
+    <div class="card"><img src="mug1.png" onclick="openModal(this.src)"></div>
+    <div class="card"><img src="mug2.png" onclick="openModal(this.src)"></div>
+    <div class="card"><img src="mug3.png" onclick="openModal(this.src)"></div>
+    <div class="card"><img src="mug4.png" onclick="openModal(this.src)"></div>
   </div>
 </section>
 
-<section id="gallery" class="section">
+<section id="gallery">
   <h2>Gallery</h2>
   <div class="gallery">
     <img src="frame1.png" onclick="openModal(this.src)">
     <img src="frame2.png" onclick="openModal(this.src)">
     <img src="frame3.jpeg" onclick="openModal(this.src)">
-    <img src="frame4.png" onclick="openModal(this.src)">
+    <img src="frame4.jpeg" onclick="openModal(this.src)">
     <img src="frame5.png" onclick="openModal(this.src)">
     <img src="mug1.png" onclick="openModal(this.src)">
     <img src="mug2.png" onclick="openModal(this.src)">
@@ -133,50 +258,78 @@ footer{background:#222;color:#fff;padding:20px;text-align:center;}
   </div>
 </section>
 
-<section id="info" class="section info">
+<section id="why">
   <h2>Why Choose Us</h2>
-  <ul>
-    <li>100% Custom Design</li>
-    <li>No Template Reuse</li>
-    <li>Normal & Luxury Options</li>
-    <li>Full Support Till Approval</li>
-    <li>Fast WhatsApp Support</li>
-    <li>Transparent Pricing</li>
-    <li>Perfect for Gifting & Branding</li>
-  </ul>
+  <div class="why">
+    <div>100% Custom Design</div>
+    <div>No Template Reuse</div>
+    <div>Normal & Luxury Options</div>
+    <div>Design Preview Before Print</div>
+    <div>Fast WhatsApp Support</div>
+    <div>Premium Finish & Quality</div>
+  </div>
+</section>
 
-  <h2 style="margin-top:40px;">Payment</h2>
-  <p>
-    Advance payment required<br>
-    UPI / GPay / PhonePe<br>
-    Invoice on request
-  </p>
+<section id="faq">
+  <h2>FAQ</h2>
+  <div class="box">
+    <li>How to place order?</li>
+    <li>Normal vs Luxury difference?</li>
+    <li>Delivery time?</li>
+    <li>Revision available?</li>
+  </div>
+</section>
 
-  <h2 style="margin-top:40px;">Support</h2>
-  <p>
-    WhatsApp Designer Chat<br>
-    Design Samples Before Confirmation<br>
-    Email & WhatsApp Orders<br>
-    Priority Assistance
-  </p>
+<section id="support">
+  <h2>Support</h2>
+  <div class="box">
+    <li>WhatsApp Designer Chat</li>
+    <li>Price Transparency</li>
+    <li>Design Samples Before Confirmation</li>
+    <li>Priority Assistance</li>
+  </div>
+</section>
 
-  <h2 style="margin-top:40px;">Contact</h2>
-  <p>
-    📍 Nabakantapur, Mithipur, Jangipur, Murshidabad, WB – 742213<br>
-    📞 +91 8391979133<br>
-    📧 wbg.2023@gmail.com
-  </p>
+<section id="payment">
+  <h2>Payment</h2>
+  <div class="box">
+    <li>Advance payment required</li>
+    <li>UPI / GPay / PhonePe</li>
+    <li>Invoice on request</li>
+  </div>
+</section>
+
+<section id="contact">
+  <h2>Have Any Query?</h2>
+  <div class="contact">
+    <div>
+      📍 Jangipur, Murshidabad, WB – 742213<br><br>
+      📞 +91 83919 79133<br><br>
+      ✉️ wbg.2023@gmail.com
+    </div>
+    <a class="whatsapp" href="https://wa.me/918391979133">Ask on WhatsApp</a>
+  </div>
 </section>
 
 <footer>
-  © 2026 WEB GALLERY. All Rights Reserved.
+  © Web Gallery — Design • Branding • Creativity
 </footer>
 
-<div id="modal" onclick="closeModal()">
-  <img id="modalImg">
+<div id="modal">
+  <div class="box">
+    <img id="modalImg">
+    <a class="modal-btn normal" href="https://wa.me/918391979133">Normal</a>
+    <a class="modal-btn luxury" href="https://wa.me/918391979133">Luxury</a>
+    <a class="modal-btn close" onclick="closeModal()">Close</a>
+  </div>
 </div>
 
 <script>
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add("show");});
+},{threshold:.2});
+document.querySelectorAll(".card,.reveal").forEach(el=>observer.observe(el));
+
 function openModal(src){
   document.getElementById("modal").style.display="flex";
   document.getElementById("modalImg").src=src;
