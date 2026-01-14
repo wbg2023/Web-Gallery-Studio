@@ -237,7 +237,41 @@ footer{
   letter-spacing:1px;
   margin-top:2px;
 }
-  
+/* BRANDING HEADER STYLE */
+.brand{
+  display:flex;
+  align-items:center;
+  gap:16px;
+}
+
+.brand img{
+  height:65px;   /* LOGO BIG */
+}
+
+.brand-text{
+  display:flex;
+  flex-direction:column;
+  line-height:1.1;
+}
+
+/* WEB GALLERY TEXT */
+.brand-name{
+  font-family:'Alte Haas Grotesk', serif;
+  font-size:36px;
+  font-weight:900;
+  color:#250145;   /* PURPLE */
+  letter-spacing:0.5px;
+}
+
+/* TAGLINE */
+.brand-tagline{
+  font-family:'Montserrat', sans-serif;
+  font-size:16px;
+  font-weight:500;
+  color:#021238;   /* DARK BLUE */
+  letter-spacing:1px;
+  margin-top:2px;
+}
 </style>
 </head>
 
@@ -249,6 +283,9 @@ footer{
   <div class="brand-text">
     <div class="brand-name">Web Gallery</div>
     <div class="brand-tagline">Design • Branding • Creativity</div>
+    <div class="brand-name animate-text">Web Gallery</div>
+    <div class="brand-tagline animate-text">Design • Branding • Creativity</div>
+    
   </div>
 </div>
 
@@ -315,6 +352,10 @@ footer{
 
 <section id="faq">
   <h2>FAQ</h2>
+  <h2 class="animate-text">Our Services</h2>
+  <h2 class="animate-text">Gallery</h2>
+  <h2 class="animate-text">Why Choose Us</h2>
+  <h2 class="animate-text">FAQ</h2>
   <div class="box">
     <li>How to place order?</li>
     <li>Normal vs Luxury difference?</li>
@@ -326,6 +367,8 @@ footer{
 <section id="support">
   <h2>Support</h2>
   <div class="box">
+  <div class="product-title animate-text">Photo Frame</div>
+  <div class="price animate-text">Normal ₹499 | Luxury ₹999</div>
     <li>WhatsApp Designer Chat</li>
     <li>Price Transparency</li>
     <li>Design Samples Before Confirmation</li>
@@ -399,6 +442,14 @@ function openModal(src){
 function closeModal(){
   document.getElementById("modal").style.display = "none";
 }
+  const observer=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting) e.target.classList.add("show");
+  });
+},{threshold:.2});
+
+document.querySelectorAll(".card").forEach(el=>observer.observe(el));
+document.querySelectorAll(".animate-text").forEach(el=>observer.observe(el));
 
 // send WhatsApp message with image + type
 function sendWhatsApp(type){
