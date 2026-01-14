@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Web Gallery | Design • Branding • Creativity</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
 
 <style>
 :root{
@@ -202,6 +202,42 @@ footer{
 /* ANIMATION */
 .reveal{opacity:0;transform:translateY(40px);transition:1s;}
 .reveal.show{opacity:1;transform:none;}
+  /* BRANDING HEADER STYLE */
+.brand{
+  display:flex;
+  align-items:center;
+  gap:16px;
+}
+
+.brand img{
+  height:65px;   /* LOGO BIG */
+}
+
+.brand-text{
+  display:flex;
+  flex-direction:column;
+  line-height:1.1;
+}
+
+/* WEB GALLERY TEXT */
+.brand-name{
+  font-family:'Playfair Display', serif;
+  font-size:28px;
+  font-weight:700;
+  color:#6a1bb1;   /* PURPLE */
+  letter-spacing:0.5px;
+}
+
+/* TAGLINE */
+.brand-tagline{
+  font-family:'Montserrat', sans-serif;
+  font-size:14px;
+  font-weight:500;
+  color:#0f2a44;   /* DARK BLUE */
+  letter-spacing:1px;
+  margin-top:2px;
+}
+  
 </style>
 </head>
 
@@ -209,12 +245,12 @@ footer{
 
 <header>
   <div class="brand">
-    <img src="logo.png" alt="Web Gallery">
-    <div>
-      <div class="brand-name">Web Gallery</div>
-      <div class="brand-tagline">Design • Branding • Creativity</div>
-    </div>
+  <img src="logo.png" alt="Web Gallery">
+  <div class="brand-text">
+    <div class="brand-name">Web Gallery</div>
+    <div class="brand-tagline">Design • Branding • Creativity</div>
   </div>
+</div>
 
   <nav>
     <a href="#service">Home</a>
@@ -325,24 +361,59 @@ footer{
 <div id="modal">
   <div class="box">
     <img id="modalImg">
-    <a class="modal-btn normal" href="https://wa.me/918391979133">Normal</a>
-    <a class="modal-btn luxury" href="https://wa.me/918391979133">Luxury</a>
-    <a class="modal-btn close" onclick="closeModal()">Close</a>
+
+    <a class="modal-btn normal" href="#" onclick="sendWhatsApp('Normal')">
+      Normal
+    </a>
+
+    <a class="modal-btn luxury" href="#" onclick="sendWhatsApp('Luxury')">
+      Luxury
+    </a>
+
+    <a class="modal-btn close" onclick="closeModal()">
+      Close
+    </a>
   </div>
 </div>
 
 <script>
-const observer=new IntersectionObserver(entries=>{
-  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add("show");});
-},{threshold:.2});
-document.querySelectorAll(".card,.reveal").forEach(el=>observer.observe(el));
+let selectedImage = "";
 
+// animation observer (already needed)
+const observer = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting) e.target.classList.add("show");
+  });
+},{threshold:.2});
+
+document.querySelectorAll(".card").forEach(el=>observer.observe(el));
+
+// open modal with image
 function openModal(src){
-  document.getElementById("modal").style.display="flex";
-  document.getElementById("modalImg").src=src;
+  selectedImage = src.split("/").pop(); // frame1.png / mug1.png
+  document.getElementById("modal").style.display = "flex";
+  document.getElementById("modalImg").src = src;
 }
+
+// close modal
 function closeModal(){
-  document.getElementById("modal").style.display="none";
+  document.getElementById("modal").style.display = "none";
+}
+
+// send WhatsApp message with image + type
+function sendWhatsApp(type){
+  const message =
+`Hello Web Gallery,
+I want to order:
+
+Product: Photo Frame
+Type: ${type}
+Reference Image: ${selectedImage}`;
+
+  window.open(
+    "https://wa.me/918391979133?text=" + encodeURIComponent(message),
+    "_blank"
+  );
 }
 </script>
 
