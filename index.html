@@ -13,7 +13,6 @@
   --card:#ffffff;
   --primary:#0f2a44;
   --accent:#c62828;
-  --gold:#caa54d;
   --text:#444;
 }
 
@@ -31,11 +30,27 @@ header{
   background:#fff;
   padding:14px 40px;
   display:flex;
-  align-items:center;
   justify-content:space-between;
+  align-items:center;
   box-shadow:0 8px 30px rgba(0,0,0,.08);
 }
-header img{height:40px;}
+.brand{
+  display:flex;
+  align-items:center;
+  gap:16px;
+}
+.brand img{height:65px;}
+.brand-name{
+  font-family:'Playfair Display', serif;
+  font-size:36px;
+  font-weight:900;
+  color:#250145;
+}
+.brand-tagline{
+  font-family:'Montserrat', sans-serif;
+  font-size:16px;
+  color:#021238;
+}
 nav a{
   margin-left:22px;
   text-decoration:none;
@@ -45,17 +60,11 @@ nav a{
 nav a:hover{color:var(--accent);}
 
 /* SECTION */
-section{
-  padding:80px 60px;
-}
+section{padding:80px 60px;}
 h2{
   font-size:34px;
   color:var(--primary);
   margin-bottom:25px;
-}
-.sub{
-  font-size:18px;
-  margin-bottom:30px;
 }
 
 /* SERVICES */
@@ -81,17 +90,10 @@ h2{
   padding:18px;
   width:260px;
   box-shadow:0 18px 40px rgba(0,0,0,.08);
-  transition:.45s ease;
-  opacity:0;
-  transform:translateY(40px);
-}
-.card.show{
-  opacity:1;
-  transform:translateY(0);
+  transition:.4s ease;
 }
 .card:hover{
-  transform:translateY(-12px) scale(1.05);
-  box-shadow:0 30px 70px rgba(0,0,0,.15);
+  transform:translateY(-10px) scale(1.05);
 }
 .card img{
   width:100%;
@@ -110,13 +112,10 @@ h2{
   border-radius:16px;
   box-shadow:0 14px 35px rgba(0,0,0,.1);
   transition:.4s;
-  cursor:pointer;
 }
-.gallery img:hover{
-  transform:scale(1.1);
-}
+.gallery img:hover{transform:scale(1.1);}
 
-/* WHY US */
+/* WHY */
 .why{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
@@ -127,10 +126,9 @@ h2{
   padding:22px;
   border-radius:16px;
   box-shadow:0 10px 30px rgba(0,0,0,.08);
-  font-weight:500;
 }
 
-/* FAQ / SUPPORT */
+/* BOX */
 .box{
   background:#fff;
   border-radius:18px;
@@ -143,7 +141,6 @@ h2{
 .contact{
   display:flex;
   justify-content:space-between;
-  align-items:center;
   gap:40px;
 }
 .whatsapp{
@@ -154,9 +151,16 @@ h2{
   text-decoration:none;
   font-size:18px;
   font-weight:600;
-  box-shadow:0 20px 40px rgba(37,211,102,.35);
 }
-.whatsapp:hover{filter:brightness(1.1);}
+
+/* FOOTER */
+footer{
+  background:#0f2a44;
+  color:#fff;
+  text-align:center;
+  padding:25px;
+  margin-top:60px;
+}
 
 /* MODAL */
 #modal{
@@ -168,15 +172,8 @@ h2{
   align-items:center;
   z-index:2000;
 }
-#modal .box{
-  max-width:420px;
-  text-align:center;
-}
-#modal img{
-  width:100%;
-  border-radius:14px;
-  margin-bottom:15px;
-}
+#modal .box{max-width:420px;text-align:center;}
+#modal img{width:100%;border-radius:14px;margin-bottom:15px;}
 .modal-btn{
   display:block;
   margin:10px 0;
@@ -190,87 +187,15 @@ h2{
 .luxury{background:#c62828;}
 .close{background:#aaa;}
 
-/* FOOTER */
-footer{
-  background:#0f2a44;
-  color:#fff;
-  text-align:center;
-  padding:25px;
-  margin-top:60px;
+/* TEXT ANIMATION */
+.animate-text{
+  opacity:0;
+  transform:translateY(25px);
+  transition:all .8s ease;
 }
-
-/* ANIMATION */
-.reveal{opacity:0;transform:translateY(40px);transition:1s;}
-.reveal.show{opacity:1;transform:none;}
-  /* BRANDING HEADER STYLE */
-.brand{
-  display:flex;
-  align-items:center;
-  gap:16px;
-}
-
-.brand img{
-  height:65px;   /* LOGO BIG */
-}
-
-.brand-text{
-  display:flex;
-  flex-direction:column;
-  line-height:1.1;
-}
-
-/* WEB GALLERY TEXT */
-.brand-name{
-  font-family:'Playfair Display', serif;
-  font-size:28px;
-  font-weight:700;
-  color:#6a1bb1;   /* PURPLE */
-  letter-spacing:0.5px;
-}
-
-/* TAGLINE */
-.brand-tagline{
-  font-family:'Montserrat', sans-serif;
-  font-size:14px;
-  font-weight:500;
-  color:#0f2a44;   /* DARK BLUE */
-  letter-spacing:1px;
-  margin-top:2px;
-}
-/* BRANDING HEADER STYLE */
-.brand{
-  display:flex;
-  align-items:center;
-  gap:16px;
-}
-
-.brand img{
-  height:65px;   /* LOGO BIG */
-}
-
-.brand-text{
-  display:flex;
-  flex-direction:column;
-  line-height:1.1;
-}
-
-/* WEB GALLERY TEXT */
-.brand-name{
-  font-family:'Alte Haas Grotesk', serif;
-  font-size:36px;
-  font-weight:900;
-  color:#250145;   /* PURPLE */
-  letter-spacing:0.5px;
-}
-
-/* TAGLINE */
-.brand-tagline{
-  font-family:'Montserrat', sans-serif;
-  font-size:16px;
-  font-weight:500;
-  color:#021238;   /* DARK BLUE */
-  letter-spacing:1px;
-  margin-top:2px;
+.animate-text.show{
+  opacity:1;
+  transform:none;
 }
 </style>
 </head>
@@ -279,16 +204,12 @@ footer{
 
 <header>
   <div class="brand">
-  <img src="logo.png" alt="Web Gallery">
-  <div class="brand-text">
-    <div class="brand-name">Web Gallery</div>
-    <div class="brand-tagline">Design • Branding • Creativity</div>
-    <div class="brand-name animate-text">Web Gallery</div>
-    <div class="brand-tagline animate-text">Design • Branding • Creativity</div>
-    
+    <img src="logo.png">
+    <div>
+      <div class="brand-name animate-text">Web Gallery</div>
+      <div class="brand-tagline animate-text">Design • Branding • Creativity</div>
+    </div>
   </div>
-</div>
-
   <nav>
     <a href="#service">Home</a>
     <a href="#gallery">Gallery</a>
@@ -301,7 +222,7 @@ footer{
 </header>
 
 <section id="service">
-  <h2>Our Services</h2>
+  <h2 class="animate-text">Our Services</h2>
 
   <div class="product-title">Photo Frame</div>
   <div class="price">Normal ₹499 | Luxury ₹999</div>
@@ -324,7 +245,7 @@ footer{
 </section>
 
 <section id="gallery">
-  <h2>Gallery</h2>
+  <h2 class="animate-text">Gallery</h2>
   <div class="gallery">
     <img src="frame1.png" onclick="openModal(this.src)">
     <img src="frame2.png" onclick="openModal(this.src)">
@@ -339,22 +260,16 @@ footer{
 </section>
 
 <section id="why">
-  <h2>Why Choose Us</h2>
+  <h2 class="animate-text">Why Choose Us</h2>
   <div class="why">
     <div>100% Custom Design</div>
     <div>No Template Reuse</div>
     <div>Normal & Luxury Options</div>
-    <div>Design Preview Before Print</div>
-    <div>Fast WhatsApp Support</div>
     <div>Premium Finish & Quality</div>
   </div>
 </section>
 
 <section id="faq">
-  <h2>FAQ</h2>
-  <h2 class="animate-text">Our Services</h2>
-  <h2 class="animate-text">Gallery</h2>
-  <h2 class="animate-text">Why Choose Us</h2>
   <h2 class="animate-text">FAQ</h2>
   <div class="box">
     <li>How to place order?</li>
@@ -365,19 +280,16 @@ footer{
 </section>
 
 <section id="support">
-  <h2>Support</h2>
+  <h2 class="animate-text">Support</h2>
   <div class="box">
-  <div class="product-title animate-text">Photo Frame</div>
-  <div class="price animate-text">Normal ₹499 | Luxury ₹999</div>
     <li>WhatsApp Designer Chat</li>
     <li>Price Transparency</li>
     <li>Design Samples Before Confirmation</li>
-    <li>Priority Assistance</li>
   </div>
 </section>
 
 <section id="payment">
-  <h2>Payment</h2>
+  <h2 class="animate-text">Payment</h2>
   <div class="box">
     <li>Advance payment required</li>
     <li>UPI / GPay / PhonePe</li>
@@ -386,10 +298,10 @@ footer{
 </section>
 
 <section id="contact">
-  <h2>Have Any Query?</h2>
+  <h2 class="animate-text">Have Any Query?</h2>
   <div class="contact">
     <div>
-      📍 Jangipur, Murshidabad, WB – 742213<br><br>
+      📍 Jangipur, Murshidabad – 742213<br><br>
       📞 +91 83919 79133<br><br>
       ✉️ wbg.2023@gmail.com
     </div>
@@ -398,73 +310,41 @@ footer{
 </section>
 
 <footer>
-  © Web Gallery — Design • Branding • Creativity
+© Web Gallery — Design • Branding • Creativity
 </footer>
 
 <div id="modal">
   <div class="box">
     <img id="modalImg">
-
-    <a class="modal-btn normal" href="#" onclick="sendWhatsApp('Normal')">
-      Normal
-    </a>
-
-    <a class="modal-btn luxury" href="#" onclick="sendWhatsApp('Luxury')">
-      Luxury
-    </a>
-
-    <a class="modal-btn close" onclick="closeModal()">
-      Close
-    </a>
+    <a class="modal-btn normal" href="#" onclick="sendWhatsApp('Normal')">Normal</a>
+    <a class="modal-btn luxury" href="#" onclick="sendWhatsApp('Luxury')">Luxury</a>
+    <a class="modal-btn close" onclick="closeModal()">Close</a>
   </div>
 </div>
 
 <script>
-let selectedImage = "";
+let selectedImage="";
 
-// animation observer (already needed)
-const observer = new IntersectionObserver(entries=>{
+const observer=new IntersectionObserver(entries=>{
   entries.forEach(e=>{
     if(e.isIntersecting) e.target.classList.add("show");
   });
 },{threshold:.2});
 
-document.querySelectorAll(".card").forEach(el=>observer.observe(el));
-
-// open modal with image
-function openModal(src){
-  selectedImage = src.split("/").pop(); // frame1.png / mug1.png
-  document.getElementById("modal").style.display = "flex";
-  document.getElementById("modalImg").src = src;
-}
-
-// close modal
-function closeModal(){
-  document.getElementById("modal").style.display = "none";
-}
-  const observer=new IntersectionObserver(entries=>{
-  entries.forEach(e=>{
-    if(e.isIntersecting) e.target.classList.add("show");
-  });
-},{threshold:.2});
-
-document.querySelectorAll(".card").forEach(el=>observer.observe(el));
 document.querySelectorAll(".animate-text").forEach(el=>observer.observe(el));
 
-// send WhatsApp message with image + type
+function openModal(src){
+  selectedImage=src.split("/").pop();
+  modal.style.display="flex";
+  modalImg.src=src;
+}
+function closeModal(){modal.style.display="none";}
 function sendWhatsApp(type){
-  const message =
-`Hello Web Gallery,
-I want to order:
-
+  const msg=`Hello Web Gallery,
 Product: Photo Frame
 Type: ${type}
-Reference Image: ${selectedImage}`;
-
-  window.open(
-    "https://wa.me/918391979133?text=" + encodeURIComponent(message),
-    "_blank"
-  );
+Image: ${selectedImage}`;
+  window.open("https://wa.me/918391979133?text="+encodeURIComponent(msg));
 }
 </script>
 
