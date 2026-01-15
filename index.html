@@ -104,26 +104,27 @@ h2{
 /* GALLERY */
 .gallery{
   display:grid;
-  grid-template-columns:repeat(auto-fill, 180px); /* FIXED thumbnail */
-  gap:20px;
+  grid-template-columns:repeat(auto-fill, 200px);
+  gap:22px;
   justify-content:start;
 }
 
+/* 8x12 PHOTO FRAME BOX */
 .gallery img{
-  width:180px;
-  height:180px;
-  object-fit:cover;       /* crop nicely */
-  background:#fff;
-  padding:6px;
-  border-radius:14px;
-  box-shadow:0 8px 20px rgba(0,0,0,.1);
-  transition:.3s ease;
+  width:200px;
+  height:300px;              /* 8x12 ratio */
+  object-fit:contain;        /* NO CROP */
+  background:#ffffff;
+  padding:10px;
+  border-radius:16px;
+  box-shadow:0 10px 25px rgba(0,0,0,.12);
+  transition:.35s ease;
   cursor:pointer;
 }
 
-.gallery img:hover{transform:scale(1.08);
+.gallery img:hover{
+  transform:translateY(-6px) scale(1.03);
 }
-
 /* WHY */
 .why{
   display:grid;
