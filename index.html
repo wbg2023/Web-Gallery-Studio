@@ -104,14 +104,20 @@ h2{
 /* GALLERY */
 .gallery{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-  gap:24px;
+  grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); /* 👈 smaller */
+  gap:18px;
+  align-items:start;
 }
 .gallery img{
+  background:#fff;
+  padding:8px;
   width:100%;
-  border-radius:16px;
-  box-shadow:0 14px 35px rgba(0,0,0,.1);
-  transition:.4s;
+  max-width:220px;        /* 👈 LIMIT SIZE */
+  height:auto;
+  margin:auto;
+  border-radius:14px;
+  box-shadow:0 10px 25px rgba(0,0,0,.1);
+  transition:.35s ease;
 }
 .gallery img:hover{transform:scale(1.1);}
 
