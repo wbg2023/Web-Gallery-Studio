@@ -256,6 +256,39 @@ footer{
     <img src="mug2.png" onclick="openModal(this.src)">
     <img src="mug3.png" onclick="openModal(this.src)">
     <img src="mug4.png" onclick="openModal(this.src)">
+    <img src="fm5.jpg" onclick="openModal(this.src)">
+    <img src="fm6.jpg" onclick="openModal(this.src)">
+    <img src="fm7.jpg" onclick="openModal(this.src)">
+    <img src="fm8.jpg" onclick="openModal(this.src)">
+    <img src="fm9.jpg" onclick="openModal(this.src)">
+    <img src="fm10.jpg" onclick="openModal(this.src)">
+    <img src="fm11.jpg" onclick="openModal(this.src)">
+    <img src="fm12.jpg" onclick="openModal(this.src)">
+    <img src="fm13.jpg" onclick="openModal(this.src)">
+    <img src="fm14.jpg" onclick="openModal(this.src)">
+    <img src="fm15.jpg" onclick="openModal(this.src)">
+    <img src="fm16.jpg" onclick="openModal(this.src)">
+    <img src="fm17.jpg" onclick="openModal(this.src)">
+    <img src="fm18.jpg" onclick="openModal(this.src)">
+    <img src="fm19.jpg" onclick="openModal(this.src)">
+    <img src="fm20.jpg" onclick="openModal(this.src)">
+    <img src="fm21.jpg" onclick="openModal(this.src)">
+    <img src="fm22.jpg" onclick="openModal(this.src)">
+    <img src="fm23.jpg" onclick="openModal(this.src)">
+    <img src="fm24.jpg" onclick="openModal(this.src)">
+    <img src="fm25.jpg" onclick="openModal(this.src)">
+    <img src="fm26.jpg" onclick="openModal(this.src)">
+    <img src="fm27.jpg" onclick="openModal(this.src)">
+    <img src="fm28.jpg" onclick="openModal(this.src)">
+    <img src="fm29.jpg" onclick="openModal(this.src)">
+    <img src="fm30.jpg" onclick="openModal(this.src)">
+    <img src="fm31.jpg" onclick="openModal(this.src)">
+    <img src="fm32.jpg" onclick="openModal(this.src)">
+    <img src="fm33.jpg" onclick="openModal(this.src)">
+    <img src="fm4.jpg" onclick="openModal(this.src)">
+    <img src="fm3.jpg" onclick="openModal(this.src)">
+    <img src="fm2.jpg" onclick="openModal(this.src)">
+    <img src="fm1.jpg" onclick="openModal(this.src)">
   </div>
 </section>
 
@@ -298,10 +331,10 @@ footer{
 </section>
 
 <section id="contact">
-  <h2 class="animate-text">Have Any Query?</h2>
+  <h2 class="animate-text">Contact Details?</h2>
   <div class="contact">
     <div>
-      📍 Jangipur, Murshidabad – 742213<br><br>
+      📍 Nabakantapur, Jangipur, Murshidabad, West Bengal, India – 742213<br><br>
       📞 +91 83919 79133<br><br>
       ✉️ wbg.2023@gmail.com
     </div>
@@ -334,16 +367,18 @@ const observer=new IntersectionObserver(entries=>{
 document.querySelectorAll(".animate-text").forEach(el=>observer.observe(el));
 
 function openModal(src){
-  selectedImage=src.split("/").pop();
-  modal.style.display="flex";
-  modalImg.src=src;
+  selectedImage = src;   // 👈 FULL IMAGE URL
+  modal.style.display = "flex";
+  modalImg.src = src;
 }
 function closeModal(){modal.style.display="none";}
 function sendWhatsApp(type){
-  const msg=`Hello Web Gallery,
+  const msg = `Hello Web Gallery,
 Product: Photo Frame
 Type: ${type}
-Image: ${selectedImage}`;
+
+Selected Design:
+${selectedImage}`;
   window.open("https://wa.me/918391979133?text="+encodeURIComponent(msg));
 }
 </script>
